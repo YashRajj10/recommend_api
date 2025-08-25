@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 app = Flask(__name__)
 CORS(app)
 
-WORDPRESS_API = "https://https://webmind.keytools.in/wp-json/wp/v2/posts?per_page=20"
+WORDPRESS_API = "https://webmind.keytools.in/wp-json/wp/v2/posts?per_page=100"
 
 def fetch_posts():
     response = requests.get(WORDPRESS_API)
@@ -41,3 +41,4 @@ def recommend():
         if len(recommendations) == 3:
             break
     return jsonify({"recommended": recommendations})
+
